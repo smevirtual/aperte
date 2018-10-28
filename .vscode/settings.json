@@ -1,0 +1,21 @@
+{
+  "tslint.packageManager": "yarn",
+  "npm.packageManager": "yarn",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": [
+    "--global-config",
+    "${workspaceRoot}/setup.cfg"
+  ],
+  "editor.rulers": [
+    80
+  ],
+  "python.pythonPath": "${workspaceFolder}/venv/bin/python",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "html.format.enable": false,
+  "eslint.packageManager": "yarn"
+}
