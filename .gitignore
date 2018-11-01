@@ -245,5 +245,8 @@ static/
 app.yaml
 app.*.yaml
 
-# Generated requirements.txt file in the repository root
+# Build-generated requirements.txt file in the repository root
 requirements.txt
+
+# For 'gulp-real-favicon'
+favicondata.json

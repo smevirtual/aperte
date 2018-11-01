@@ -1,0 +1,7 @@
+# Dependencies that are installed on the local file system (without Docker) for
+# this project.
+# This reason that the dependencies are installed on the local file system is so
+# code editors (like Visual Studio Code) can locate Python imports and
+# associated Python tooling (for example, pylint) can run.
+
+-r common-development.txt
