@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Server Error - 500" %}{% endblock %}
+{% block head_extras %}
+  <meta name="robots" content="NONE,NOARCHIVE">
+{% endblock head_extras %}
+{% block body_classes %}{{ block.super }} page-error {% endblock body_classes %}
+
+{% block main_content %}
+  <h1>500.</h1>
+
+  <p>{% trans "A server error has occurred." %}</p>
+
+  <p>{% trans "These errors are tracked automatically and our team will get right on it!" %}</p>
+  <p>{% trans "Did you know that this website's code is open-source? Want to help us fix this error?" %}</p>
+  <p>{% blocktrans %}Check out the project{% endblocktrans %} <a href="https://github.com/smevirtual/aperte">{% blocktrans %}here.{% endblocktrans %}</a></p>
+{% endblock main_content %}

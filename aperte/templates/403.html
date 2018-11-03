@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Forbidden - 403" %}{% endblock %}
+{% block head_extras %}
+  <meta name="robots" content="NONE,NOARCHIVE">
+{% endblock head_extras %}
+{% block body_classes %}{{ block.super }} page-error {% endblock body_classes %}
+
+{% block main_content %}
+  <h1>403.</h1>
+
+  <p>{% trans "We apologize if this is an error, but it appears that you are not authorized to access this page." %}</p>
+{% endblock main_content %}

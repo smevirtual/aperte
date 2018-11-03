@@ -1,0 +1,52 @@
+{% load raven %}
+{% load staticfiles i18n %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <title>{% block title %}SME Virtual Network{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="version" content="{{ site_info.RELEASE_VERSION }}">
+    <meta name="description" content="{% block meta_description %}{% endblock meta_description %}">
+
+    {% if site_info.IS_RAVEN_INSTALLED %}
+        <script>Raven.config('{% sentry_public_dsn %}').install()</script>
+    {% endif %}
+
+    <!-- STYLES
+    ================================================== -->
+    {% block css %}
+      {% if debug %}
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+      {% else %}
+        <link href="{% static 'css/styles.min.css' %}" rel="stylesheet">
+      {% endif %}
+    {% endblock css %}
+    {% block head_extras %}{% endblock %}
+  </head>
+
+  <body class="{% block body_classes %}stm-main-container{% endblock body_classes %}">
+    <header class="">
+    </header>
+
+    <main class="">
+      {% block main_content %}
+      {% endblock main_content %}
+    </main>
+
+    <footer class="">
+
+    </footer>
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+    {% block js %}
+      <!-- Add Javascript here. -->
+      {% if debug %}
+        <!-- Live-reloading support while in development. -->
+        <script>{% include "devrecargar/devrecargar.js" %}</script>
+      {% endif %}
+    {% endblock js %}
+  </body>
+</html>

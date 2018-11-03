@@ -57,6 +57,7 @@ def init_dev():
     """
     install_pip_requirements()
     build_environment_files('development')
+    install_npm_requirements()
 
 def install_pip_requirements(requirements_file: str = env.local_requirements_file):
     """Install pip dependencies to the local Python virtual environment within
@@ -114,7 +115,7 @@ def init_prod():
     """
     build_environment_files('production')
 
-# SETUP
+# CLOUD SETUP
 # ------------------------------------------------------------------------------
 
 def build_environment_files(environ: str = 'development'):
@@ -148,6 +149,10 @@ def django_manage_command(command: str):
 # FRONTEND (JAVASCRIPT, STYLES, ASSETS)
 # ------------------------------------------------------------------------------
 
+def install_npm_requirements():
+    """Install all npm requirements from the root package.json file via 'yarn'.
+    """
+    local_bash_command('yarn install')
 
 # PACKAGING (DOCKER)
 # ------------------------------------------------------------------------------
@@ -166,7 +171,7 @@ def docker_up(compose_file: str = 'docker.development.yaml'):
     with activate_virtualenv():
         local_bash_command('docker-compose -f %s up' % compose_file)
 
-def docker_down(compose_file: str = 'docker.development.yaml'):
+def docker_destroy(compose_file: str = 'docker.development.yaml'):
     """
     Stops and removes all containers, networks, volumes and images created for
     the Docker stack as specified in the provided Docker Compose file.

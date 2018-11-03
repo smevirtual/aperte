@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Bad Request - 400" %}{% endblock %}
+{% block head_extras %}
+  <meta name="robots" content="NONE,NOARCHIVE">
+{% endblock head_extras %}
+{% block body_classes %}{{ block.super }} page-error {% endblock body_classes %}
+
+{% block main_content %}
+  <h1>400.</h1>
+
+  <p>{% trans "The request cannot be fulfilled. Please check the web address that you have entered and try again." %}</p>
+{% endblock main_content %}
