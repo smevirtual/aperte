@@ -1,0 +1,6 @@
+# Dependencies for this project when deployed to a Docker-based environment.
+
+-r local.txt
+
+psycopg2==2.7.4 --no-binary psycopg2
+pylibmc==1.5.2

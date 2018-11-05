@@ -236,9 +236,11 @@ $RECYCLE.BIN/
 # Pyre Checker
 .pyre/
 
+# Django static and media directories.
 static/
 .media/
 
+# Environment variables for Django settings.
 .env/
 
 # Google App Engine

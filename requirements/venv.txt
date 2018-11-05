@@ -1,0 +1,6 @@
+# Dependencies that are installed on the local file system within the Python
+# virtual environment (venv). The virtual environment allows code editors (like
+# Visual Studio Code) to handle imports intelligently and associated Python
+# tooling (for example, pylint) to run within the editor.
+
+-r local.txt

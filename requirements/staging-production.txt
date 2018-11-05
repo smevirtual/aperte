@@ -1,0 +1,8 @@
+# Dependencies for this project when deployed to a Cloud-based staging or 
+# production environment.
+
+-r common.txt
+
+django-auth-wall==0.2.0
+psycopg2==2.7.4
+pylibmc==1.5.2

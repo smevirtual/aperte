@@ -17,7 +17,7 @@ RUN apk update \
 
 # Requirements are installed here to ensure that they will be cached.
 COPY ./requirements /requirements
-RUN pip install -r /requirements/docker-development.txt
+RUN pip install -r /requirements/docker.txt
 
 COPY ./docker/development/django/entrypoint /entrypoint
 RUN sed -i 's/\r//' /entrypoint

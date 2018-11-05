@@ -17,6 +17,7 @@
 #pylint: disable=C0103
 
 # Standard Library
+import sys
 import os
 from contextlib import contextmanager
 from functools import partial
@@ -27,37 +28,39 @@ from fabric import api as fab
 from fabric.api import local as fabric_local
 from fabric.api import env
 
-# TODO: Re-enable this.
-# from jinja2 import Template
+from jinja2 import Template
 
 REPO_ROOT_DIR: str = dirname(__file__)
 
 local_bash_command = partial(fabric_local, shell='/bin/bash')
 
 env.virtualenv_dir: str = join(REPO_ROOT_DIR, 'venv')
-env.local_requirements_file: str = join(
-    REPO_ROOT_DIR, 'requirements/local-development.txt')
+env.venv_requirements_file: str = join(
+    REPO_ROOT_DIR, 'requirements/venv.txt')
 env.shell: str = '/bin/bash -l -i -c'
 env.use_ssh_config: bool = True
+env.platform: str = sys.platform.lower()
 
-# INITIALIZE DEVELOPMENT SETUP
+# LOCAL SETUP
 # ------------------------------------------------------------------------------
 
 def init_dev():
     """Prepare the local machine for development.
-
-    This is primarily to create a Python virtual environment inside of the
-    repository root so that Python imports within the code base and Django
-    management commands work. Also, this process will ask the user questions to
-    generate environment variable files and cloud deployment manifests to the
-    repository directory.
-
-    Development and compilation of the actual Python code is done within the
-    Docker environment.
     """
     install_pip_requirements()
-    build_environment_files('development')
+    ask_docker_questions()
+    build_environment_files()
     install_npm_requirements()
+
+def docker_setup(env: str):
+    """TODO
+    """
+    pass
+
+def ask_docker_questions():
+    """TODO
+    """
+    pass
 
 def install_pip_requirements(requirements_file: str = env.local_requirements_file):
     """Install pip dependencies to the local Python virtual environment within
@@ -103,28 +106,32 @@ def deactivate_virtualenv():
         with fab.prefix('source %(virtualenv_dir)s/bin/deactivate' % env):
             yield
 
-# INITIALIZE PRODUCTION SETUP
+# DEPLOY SETUP
 # ------------------------------------------------------------------------------
 
-def init_prod():
+def deploy_setup():
     """
-    Prepare the repository for a production deployment.
+    Prepare the repository for a GAE staging/production deployment.
 
     The process will ask the user questions to generate environment variable
-    files and cloud deployment manifests to the repository directory.
+    files and GAE deployment manifests to the repository directory.
     """
-    build_environment_files('production')
+    pass
+
+def ask_deploy_questions():
+    """TODO
+    """
+    pass
 
 # CLOUD SETUP
 # ------------------------------------------------------------------------------
 
-def build_environment_files(environ: str = 'development'):
+def build_environment_files():
     """
     Build and write environment variable files and cloud deployment manifests to
     the repository directory.
     """
-    print('Please answer the following questions to generate the appropriate environment files:')
-    # TODO: Continue here.
+    pass
 
 # DJANGO MANAGEMENT
 # ------------------------------------------------------------------------------
@@ -154,7 +161,7 @@ def install_npm_requirements():
     """
     local_bash_command('yarn install')
 
-# PACKAGING (DOCKER)
+# DOCKER MANAGEMENT
 # ------------------------------------------------------------------------------
 
 def docker_up(compose_file: str = 'docker.development.yaml'):
@@ -189,9 +196,9 @@ def docker_destroy(compose_file: str = 'docker.development.yaml'):
 # ------------------------------------------------------------------------------
 
 
-# DEPLOYMENT (GOOGLE APP ENGINE FLEXIBLE ENVIRONMENT)
+# DEPLOYMENT
 # ------------------------------------------------------------------------------
 
-def deploy():
+def deploy(env: str):
     """Deploy this project to Google App Engine."""
     pass

@@ -33,13 +33,10 @@ admin.site.site_title = admin.site.site_header = 'Aperte Administration'
 urlpatterns = [
     url(r'^$',
         TemplateView.as_view(template_name='pages/home.html'), name='home'),
-    url(r'^about/$',
-        TemplateView.as_view(template_name='pages/about.html'), name='about'),
-    url(r'^contributors/$',
-        TemplateView.as_view(template_name='pages/contributors.html'), name='contributors'),
     # Django administration.
     url(r'^{}/'.format(settings.ADMIN_URL), admin.site.urls),
-    url(r'^accounts/', include('allauth.urls')),
+    # TODO: Re-enable this.
+    # url(r'^accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += [

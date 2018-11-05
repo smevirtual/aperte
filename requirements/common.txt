@@ -1,4 +1,4 @@
-# Common dependencies for all project environments.
+# Common dependencies for ALL environments.
 
 argon2_cffi==18.1.0
 # See https://github.com/python-hyper/brotlipy/issues/143
