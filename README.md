@@ -7,6 +7,14 @@ It is slightly opinionated for volunteer-powered [SME](http://www.sme.org/)
 chapters and communities, but it is customizable and can be adapted to various
 other use cases.
 
+Aperte consists of the following high-level core features:
+
+- Event management - including scheduling, registrations and payments.
+- Member and non-member feedback handling.
+- Data dashboards for chapter performance and finances.
+- Centralized social media integration and management.
+- First-class integration with [Discord](https://discordapp.com/) and [Discourse](https://www.discourse.org/).
+
 ### Motivation
 
 Feedback and openness are essential ingredients for successful and engaging chapters.
