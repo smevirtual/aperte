@@ -14,7 +14,7 @@
   "html.format.enable": false,
   "eslint.packageManager": "yarn",
   "files.exclude": {
-    "**/.git": false,
+    "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
