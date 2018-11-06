@@ -47,10 +47,18 @@ env.platform: str = sys.platform.lower()
 def init_dev():
     """Prepare the local machine for development.
     """
+    set_fs_permissions()
     install_pip_requirements()
     ask_docker_questions()
     build_environment_files()
     install_npm_requirements()
+
+def set_fs_permissions():
+    """Sets file system permissions on select files and directories.
+    """
+    for root, dirs, files in os.walk(join(REPO_ROOT_DIR, '.githooks')):
+        for f in files:
+            os.chmod(os.path.join(root, f), 0o777)
 
 def docker_setup(env: str):
     """TODO
@@ -62,7 +70,7 @@ def ask_docker_questions():
     """
     pass
 
-def install_pip_requirements(requirements_file: str = env.local_requirements_file):
+def install_pip_requirements(requirements_file: str = env.venv_requirements_file):
     """Install pip dependencies to the local Python virtual environment within
     the repository root.
 

@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Running commitlint..."
+echo
+
+node_modules/.bin/commitlint -e || {
+  echo
+  echo "commitlint > commit-msg hook failed (add --no-verify to bypass)"
+  exit 1
+}
+
+echo
