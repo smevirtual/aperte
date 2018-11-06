@@ -250,5 +250,8 @@ app.*.yaml
 # Build-generated requirements.txt file in the repository root
 requirements.txt
 
+# Build-generated Docker Compose files in the repository root
+docker.*.yaml
+
 # For 'gulp-real-favicon'
 favicondata.json
