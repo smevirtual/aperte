@@ -1,10 +1,10 @@
-# Common dependencies for all project environments.
+# Common dependencies for ALL environments.
 
 argon2_cffi==18.1.0
 # See https://github.com/python-hyper/brotlipy/issues/143
 # brotlipy==0.7.0
 git+git://github.com/adamjcook/brotlipy@2f103d0#egg=brotlipy
-Django==2.1.2
+Django==2.2
 django-allauth==0.36.0
 django-anymail[sendgrid]==3.0
 django-configurations==2.0

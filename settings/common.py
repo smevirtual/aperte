@@ -86,13 +86,14 @@ class Common(Configuration):
         'aperte.users',
     ]
     THIRD_PARTY_APPS = [
-        'allauth',
-        'allauth.account',
-        'allauth.socialaccount',
-        'allauth.socialaccount.providers.github',
-        'allauth.socialaccount.providers.google',
-        'allauth.socialaccount.providers.linkedin',
-        'allauth.socialaccount.providers.linkedin_oauth2',
+        # TODO: Re-enable this.
+        # 'allauth',
+        # 'allauth.account',
+        # 'allauth.socialaccount',
+        # 'allauth.socialaccount.providers.github',
+        # 'allauth.socialaccount.providers.google',
+        # 'allauth.socialaccount.providers.linkedin',
+        # 'allauth.socialaccount.providers.linkedin_oauth2',
         'versatileimagefield',
         # TODO: Re-enable this.
         # 'corsheaders',
@@ -121,7 +122,8 @@ class Common(Configuration):
     AUTH_USER_MODEL = 'users.User'
     AUTHENTICATION_BACKENDS = [
         'django.contrib.auth.backends.ModelBackend',
-        'allauth.account.auth_backends.AuthenticationBackend',
+        # TODO: Re-enable this.
+        #'allauth.account.auth_backends.AuthenticationBackend',
     ]
     PASSWORD_HASHERS = [
         'django.contrib.auth.hashers.Argon2PasswordHasher',

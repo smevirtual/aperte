@@ -1,0 +1,37 @@
+version: "2"
+
+volumes:
+  postgresql_data_{{ environment }}: {}
+  postgresql_backup_{{ environment }}: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/{{ environment }}/django/Dockerfile
+    image: aperte_{{ environment }}_django
+    depends_on:
+      - postgresql
+      - redis
+    volumes:
+      - .:/app
+    env_file:
+      - ./.env/{{ environment }}/docker.postgresql.env
+      - ./.env/{{ environment }}/django.env
+    ports:
+      - "8000:8000"
+    command: /start
+
+  postgresql:
+    build:
+      context: .
+      dockerfile: ./docker/{{ environment }}/postgresql/Dockerfile
+    image: aperte_{{ environment }}_postgresql
+    volumes:
+      - postgresql_data_{{ environment }}:/var/lib/postgresql/data
+      - postgresql_backup_{{ environment }}:/backups
+    env_file:
+      - ./.env/{{ environment }}/docker.postgresql.env
+
+  redis:
+    image: redis:5.0

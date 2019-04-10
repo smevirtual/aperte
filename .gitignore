@@ -236,9 +236,11 @@ $RECYCLE.BIN/
 # Pyre Checker
 .pyre/
 
+# Django static and media directories.
 static/
 .media/
 
+# Environment variables for Django settings.
 .env/
 
 # Google App Engine
@@ -247,6 +249,9 @@ app.*.yaml
 
 # Build-generated requirements.txt file in the repository root
 requirements.txt
+
+# Build-generated Docker Compose files in the repository root
+docker.*.yaml
 
 # For 'gulp-real-favicon'
 favicondata.json

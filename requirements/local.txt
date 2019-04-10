@@ -1,7 +1,7 @@
-# Common dependencies for all project development (Docker and local)
-# environments.
+# Common dependencies for ALL local environments.
+#
 # Note: The 'psycopg2' dependency should be placed in the specific development
-#       requirements file.
+# requirements file.
 
 -r common.txt
 

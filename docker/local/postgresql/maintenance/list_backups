@@ -4,7 +4,7 @@
 ### View the available PostgreSQL backups.
 ###
 ### Usage:
-###     $ docker-compose -f <environment>.yml (exec |run --rm) postgresql list_backups
+###     $ docker-compose -f docker.<environment>.yml (exec |run --rm) postgresql list_backups
 
 
 set -o errexit
