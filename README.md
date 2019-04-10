@@ -1,3 +1,5 @@
+**NOTE: This codebase is obsolete and archived. It remains here for reference only.**
+
 ## Aperte
 
 ![Aperte Logo](docs/img/aperte_logo_small.png)
